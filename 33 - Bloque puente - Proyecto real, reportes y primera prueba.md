@@ -91,7 +91,6 @@ Filas:   5 válidos + 1 rechazado = 6 del origen
 - **Importar `analizador_produccion.py` ejecuta el módulo completo.** Al correr la prueba aparecen los mensajes del programa y se reescriben los archivos de `salidas/`. Se resuelve con `if __name__ == "__main__":`, previsto al abrir S10-B1. Es también la causa del subrayado de Pylance en el `import` de la prueba, que es un falso positivo.
 - **Extraer una función desde cero, sin molde**, y explicar por qué cada pieza va donde va. Requisito para reclasificar [[32 - Refactorizar a funcion y para que sirve un test]].
 - **Escribir un `assert` sin que se entregue la sintaxis.**
-- Actualizar manualmente ProjectLibre para los bloques de las Semanas 8 y 9 y sus dos validaciones semanales.
 
 ## Conexiones
 
