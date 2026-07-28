@@ -501,3 +501,16 @@ Registro cronológico y acumulativo. Las entradas nuevas se agregan al final; no
 - Hallazgo aplicable a la IA: Virginia Law recomienda usarla como herramienta de prueba y no de instrucción durante el aprendizaje inicial. Coincide con la regla de integridad del método de no contar la explicación del tutor como comprensión demostrada.
 - Deuda de método atendida en parte: hasta hoy ninguna nota citaba libro y página, pese a exigirlo la regla de crecimiento de la Capa 2. La nota nueva sí lo hace. Las notas 32 y 33 siguen sin citas.
 - Configuración del entorno: se creó `CLAUDE.md` en la raíz del proyecto y una unión de directorio `.claude\skills` hacia `.agents\skills`, para que las skills sean descubribles por Claude sin duplicar archivos. Los 24 archivos de práctica se movieron de `LocalState` a `Python desde 0\practicas\`, verificando checksums antes de borrar los originales.
+
+## [2026-07-27] configuracion-de-entorno | Control de versiones y limpieza
+
+- Alcance: dejar el entorno listo antes de abrir la Semana 10. Ningun archivo de aprendizaje se modifico.
+- Repositorio accidental eliminado: `C:\Users\MSI ERICK\.git` tenia 0 commits, 0 ramas y 0 stashes, sin `.gitignore` y con un remoto de marcador de posicion (`github.com/TU_USUARIO/TU_REPOSITORIO.git`) procedente de un tutorial copiado a medias. Ocupaba 11 GB de objetos sueltos y un `git add .` habria intentado indexar 498.641 archivos, incluido `.claude.json` con credenciales de sesion. Se verifico que no contenia historial antes de borrarlo; se recuperaron 11 GB de disco.
+- Carpetas `.close-*-staging` eliminadas: las seis contenian copias de notas ya presentes en el vault. Se compararon una a una; cinco identicas y la de S08-B3 mas antigua que la del vault (`estado: pendiente-de-validacion`). No se perdio nada.
+- Proyecto versionado: primer commit `f144f18` con 49 archivos. Se anadieron `.gitignore` y `.gitattributes`. Quedan ignoradas las salidas regeneradas, los `.pod` binarios y la union de directorio `.claude/skills`, que duplicaba las skills.
+- Vault versionado: primer commit `ce42026` con 48 notas, y remoto privado en `github.com/eriecua/python-desde-0-vault`.
+- Los PDF de la Capa 1 quedan fuera del repositorio: son 97 MB de los 98 totales, y proceden de z-library. Subirlos a GitHub seria redistribuir obra con derechos de autor, aunque el repositorio sea privado. Se comprobo contra la API de GitHub que el remoto no contiene ningun PDF. El indice de fuentes si se versiona, con el hash SHA-256 de cada libro.
+- Identidad de git configurada por primera vez: `eriecua` con la direccion de privacidad `eriecua@users.noreply.github.com`, para no exponer el correo personal en los commits. Rama por defecto `main`.
+- Documentacion: seccion de control de versiones anadida a `CLAUDE.md`, y `practicas/README.md` creado con la advertencia de ejecutar los scripts desde su propia carpeta.
+- Verificacion posterior a los cambios: el analizador sigue dando 5 validos, 1 rechazado y totales `440 28 412 34`; la prueba sigue dando `OK - test_resumen_por_turno`; `practica_memoria.py` regenera su CSV. Identicos a antes de tocar nada.
+- Pendiente menor: enlace roto `karpathy` en las fuentes de la Capa 1, preexistente. Para el proximo mantenimiento del vault.
