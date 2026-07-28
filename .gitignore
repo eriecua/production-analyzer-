@@ -1,0 +1,23 @@
+# Se versionan las NOTAS (texto, 300 KB).
+# Se ignoran los LIBROS (binarios, 97 MB).
+
+# --- Libros de la Capa 1 ---
+# Motivo doble:
+#  1. Son PDF: git no puede comparar versiones, solo guardar copias enteras.
+#  2. Proceden de z-library y tienen derechos de autor. Subirlos a GitHub
+#     seria redistribuirlos, aunque el repositorio sea privado.
+# El indice de fuentes SI se versiona: conserva titulo, autor, paginas y
+# hash SHA-256 de cada libro, que es lo que permite comprobar cual es cual.
+Capa 1 - Fuentes originales/Libros de programación/
+
+# --- Estado de la interfaz de Obsidian ---
+# Cambia cada vez que mueves un panel. Ruido puro en el historial.
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+.trash/
+
+# --- Sistema operativo ---
+Thumbs.db
+desktop.ini
+.DS_Store
