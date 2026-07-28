@@ -514,3 +514,20 @@ Registro cronológico y acumulativo. Las entradas nuevas se agregan al final; no
 - Documentacion: seccion de control de versiones anadida a `CLAUDE.md`, y `practicas/README.md` creado con la advertencia de ejecutar los scripts desde su propia carpeta.
 - Verificacion posterior a los cambios: el analizador sigue dando 5 validos, 1 rechazado y totales `440 28 412 34`; la prueba sigue dando `OK - test_resumen_por_turno`; `practica_memoria.py` regenera su CSV. Identicos a antes de tocar nada.
 - Pendiente menor: enlace roto `karpathy` en las fuentes de la Capa 1, preexistente. Para el proximo mantenimiento del vault.
+
+## [2026-07-28] auditoria-de-alineacion | plan oficial vs trabajo real
+
+- Origen: el estudiante pidio el `analizador_produccion.py` completo con las doce semanas para juzgar si el aprendizaje va alineado con la planificacion. Al aclarar el objetivo resulto ser una auditoria, no codigo.
+- No se escribio el programa. Dos razones del propio proyecto: `PROYECTO.md` exige que el estudiante explique el flujo sin copiarlo, y S12-B1 es literalmente «Integrar la version final», es decir el programa completo es el entregable de la Semana 12.
+- Fuentes verificadas en disco: el XML del `.pod` con los 78 elementos del plan, `PROYECTO.md`, el codigo medido con recuentos, los 24 archivos de `practicas/` y las 33 notas de bloque.
+- Nota: [[Capa 2 - Wiki/Auditoria de alineacion - plan oficial vs trabajo real (pre-Semana 10)]]
+- Indice actualizado: si, en [[Capa 2 - Wiki/Índice de conocimientos]].
+- Veredicto: la alineacion de temario es correcta, todos los bloques de S03 a S09 tienen su nota validada y en orden. La alineacion de producto es incompleta.
+- Hallazgo principal: las Semanas 3, 6 y 7 estan validadas en `practicas/` pero nunca llegaron al programa real. Medicion: 138 lineas, 1 funcion, 0 docstrings, 1 anotacion de tipo, 0 `try/except`, 0 constantes, 1 de 9 reglas de validacion. Contraste: `practica_s06.py` si tiene `try/except` y `practica_s07.py` si tiene funciones y anotaciones.
+- Hueco del plan, no del estudiante: ningun bloque de S10 a S12 dice «implementar las validaciones». S11-B3 dice «probar validaciones» y presupone que existen.
+- `id_registro` y `fecha` se cargan en cada registro pero no se referencian nunca. Son los dos campos que necesitan las validaciones de duplicados y de fechas invalidas.
+- Ritmo: la Semana 9 se cerro 57 dias antes de lo planificado, con un maximo de once bloques validados el 17 de julio. No es desviacion: el estudiante estudia a diario y cierra cada semana conforme entiende los temas, con unas 10 h diarias disponibles. Las fechas del `.pod` son una estimacion superada, no un objetivo incumplido.
+- Las Semanas 0, 1 y 2 no tienen notas porque se hicieron antes de que existiera el vault, como demuestran las fechas de `Prueba 1.py` (14 jul) y `practica_s02.py` (16 jul). No hay nada que rehacer.
+- Plan de accion acordado: no crear un segundo bloque puente. Los huecos se reparten dentro de S10-B1 a S10-B3, mas un paso previo al inicio de la Semana 11 para escribir las ocho validaciones que faltan antes de probarlas.
+- Auditoria anterior marcada como saldada, con nota de que detectaba un desajuste distinto por comparar contra la especificacion y no contra el plan de bloques.
+- `CLAUDE.md` actualizado con el reparto de huecos, para que no se pierda entre sesiones.

@@ -1,9 +1,15 @@
 ---
 tags: [python, wiki, capa-2, planificacion, auditoria]
 capa: 2
-estado: pendiente-de-comprobar
+estado: saldada
 fecha: 2026-07-26
+fecha-cierre: 2026-07-27
 ---
+
+> [!success] Saldada el 2026-07-27
+> Los seis pasos del plan de acción se ejecutaron y quedaron registrados en [[33 - Bloque puente - Proyecto real, reportes y primera prueba]]. Los cinco desajustes de esta auditoría están resueltos.
+>
+> Una auditoría posterior, [[Auditoria de alineacion - plan oficial vs trabajo real (pre-Semana 10)]], encontró un desajuste **distinto** que esta no detectó: las Semanas 3, 6 y 7 tampoco llegaron al programa real. Esta auditoría comparó el trabajo contra la **especificación**; aquella lo comparó contra el **plan de bloques y el propio código**.
 
 # Auditoría de congruencia — plan vigente vs. especificación (antes de la Semana 10)
 
