@@ -158,6 +158,49 @@ def hacer_prueba():
 
 `Paso 2` nunca se ejecuta.
 
+### `return` dentro de un bucle
+
+Esta consecuencia es la que más confusión provoca. Si `return` queda dentro de un `for`, la función sale en la **primera vuelta** y el bucle nunca se completa.
+
+```python
+def sumar_todos(numeros):
+    total = 0
+    for n in numeros:
+        total += n
+        return total          # dentro del for: incorrecto
+
+
+print(sumar_todos([5, 10, 20]))   # Muestra 5, no 35
+```
+
+Recorrido:
+
+| Vuelta | `n` | `total` | ¿Llega al `return`? |
+| ------ | --- | ------- | ------------------- |
+| 1ª     | 5   | 5       | Sí, sale con `5`    |
+| 2ª     | —   | —       | Nunca ocurre        |
+| 3ª     | —   | —       | Nunca ocurre        |
+
+La corrección consiste en sacar `return` del bucle, al mismo nivel que el `for`:
+
+```python
+def sumar_todos(numeros):
+    total = 0
+    for n in numeros:
+        total += n
+    return total              # fuera del for: correcto
+
+
+print(sumar_todos([5, 10, 20]))   # Muestra 35
+```
+
+> [!warning] La indentación cambia el significado
+> `return` **dentro** del bucle significa "sal en la primera vuelta".
+> `return` **fuera** del bucle significa "sal cuando el bucle termine".
+> Ninguno de los dos produce error de sintaxis: el programa funciona y entrega un resultado incorrecto.
+
+El mismo riesgo aparece al construir listas dentro de una función. Si `filas = []` se coloca dentro del bucle que la llena, se reinicia en cada vuelta y solo sobrevive la última reconstrucción.
+
 También puede haber diferentes salidas:
 
 ```python

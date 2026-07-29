@@ -531,3 +531,17 @@ Registro cronológico y acumulativo. Las entradas nuevas se agregan al final; no
 - Plan de accion acordado: no crear un segundo bloque puente. Los huecos se reparten dentro de S10-B1 a S10-B3, mas un paso previo al inicio de la Semana 11 para escribir las ocho validaciones que faltan antes de probarlas.
 - Auditoria anterior marcada como saldada, con nota de que detectaba un desajuste distinto por comparar contra la especificacion y no contra el plan de bloques.
 - `CLAUDE.md` actualizado con el reparto de huecos, para que no se pierda entre sesiones.
+
+## [2026-07-29 18:23] bloque-validado | S10-B1
+
+- Evidencia: `analizador-produccion/analizador_produccion.py`
+- Verificación: revisión estática, ejecución observada en los tres caminos y explicación del estudiante.
+- Nota: [[34 - S10-B1 - Recibir la ruta CSV como argumento]]
+- Índice actualizado: sí, nueva seccion «Semana 10 — Programa de consola».
+- Cerró el pendiente que dejó abierto la sesión anterior: explicó `__name__` con sus palabras, en frío. Acertó sin ayuda que el valor lo pone Python y que la comparación es falsa al importar. Su formulación: «si el nombre coincide con la ejecución en el terminal entonces entra al bloque, si no se lo salta». Las tres analogías previas no se reutilizaron; funcionó la observación directa: imprimir `__name__`, `sys.argv[0]` y `sys.argv[1]` a la vez, y desactivar el guardián en una copia para ver `pytest` fallar con `PermissionError` al abrir `tests/`.
+- Detalle menor cerrado: el mensaje de uso pasó de `<salidas/analizador>` a `<ruta_csv>`.
+- Errores reales del bloque: `except` sin `sys.exit(1)` (el programa seguía y sobrescribía `salidas/` con ceros) y `open("ruta_csv")` con comillas, que producía un mensaje de error correcto en forma y falso en contenido.
+- Trabajo adelantado en la misma sesión, fuera del reparto de S10-B1: extracción de `calcular_resumen_por_producto` (hueco «Funciones», sí corresponde a S10-B1); `try` / `except ValueError` por fila con `continue`, que salva las filas buenas de un CSV sucio; y las tres guardias de división entre cero devolviendo `None`. Las dos últimas son reglas de `PROYECTO.md` asignadas al paso previo a S11-B1, cerradas antes de tiempo. Anotarlo allí para que la contabilidad del plan no las cuente dos veces.
+- Pruebas: de 1 a 4. Añadidos `tests/test_resumen_por_producto.py` con `test_resumen_por_producto` y `test_producto_sin_meta`, y `test_turno_sin_horas` en el archivo de turno. Los cuatro pasan con `python -m pytest tests/ -q`. Sin cubrir todavía: la guardia de `unidades_producidas == 0`, verificada solo con un CSV temporal.
+- Nota 01 ampliada: la sección 6 incluye ahora el caso de `return` dentro de un bucle, con la traza de las tres vueltas. Salió de un error real del estudiante en `prueba def.py`.
+- Observación de método: el tutor dirigió la sesión sin leer las skills del proyecto, porque no se cargan solas cuando el directorio de trabajo no es `Python desde 0`. El estudiante tuvo que señalarlo. Se incumplieron las reglas de turno (una tabla, una pregunta, una tarea por mensaje) y se anunció el cierre de S10-B1 sin invocar `cerrar-bloque-aprendizaje`. Registrado en la memoria persistente del asistente.

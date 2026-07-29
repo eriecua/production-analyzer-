@@ -79,6 +79,10 @@ Este apartado reúne exclusivamente las notas del programa de Python. Está sepa
 - [[33 - Bloque puente - Proyecto real, reportes y primera prueba]] — CSV real con los ocho campos, los tres reportes en `salidas/`, y la primera prueba automatizada del proyecto. Estado: validado.
 - [[32 - Refactorizar a funcion y para que sirve un test]] — Por qué extraer una función habilita el test, alcance local de los acumuladores, y cuándo hace falta una lista con `append`. Estado: explicación del tutor; pendiente de demostración por el estudiante.
 
+## Semana 10 — Programa de consola
+
+- [[34 - S10-B1 - Recibir la ruta CSV como argumento]] — Ruta del CSV por `sys.argv`, mensaje de uso con `sys.exit(1)`, `except FileNotFoundError` y el guardián `if __name__ == "__main__":` explicado por el estudiante. Estado: validado.
+
 ## Prácticas de transferencia
 
 - [[20 - Practica de transferencia - Calculadora validada]] — Calculadora interactiva con validación de números, operadores y repetición S/N. Estado: validado como práctica complementaria; no cierra un bloque oficial.
