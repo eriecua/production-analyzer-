@@ -82,6 +82,7 @@ Este apartado reúne exclusivamente las notas del programa de Python. Está sepa
 ## Semana 10 — Programa de consola
 
 - [[34 - S10-B1 - Recibir la ruta CSV como argumento]] — Ruta del CSV por `sys.argv`, mensaje de uso con `sys.exit(1)`, `except FileNotFoundError` y el guardián `if __name__ == "__main__":` explicado por el estudiante. Estado: validado.
+- [[35 - S10-B2 - Validar que el archivo exista y sea legible]] — Varios `except` en un mismo `try`, `PermissionError` para una ruta que existe pero no se puede leer, y el nombre del error leído en la última línea del traceback. Estado: validado.
 
 ## Prácticas de transferencia
 

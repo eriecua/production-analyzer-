@@ -3,6 +3,7 @@ tags: [python, aprendizaje, log]
 tipo: log
 ---
 
+
 # Log de aprendizaje — Python desde 0
 
 Registro cronológico y acumulativo. Las entradas nuevas se agregan al final; no se reemplazan las anteriores.
@@ -545,3 +546,16 @@ Registro cronológico y acumulativo. Las entradas nuevas se agregan al final; no
 - Pruebas: de 1 a 4. Añadidos `tests/test_resumen_por_producto.py` con `test_resumen_por_producto` y `test_producto_sin_meta`, y `test_turno_sin_horas` en el archivo de turno. Los cuatro pasan con `python -m pytest tests/ -q`. Sin cubrir todavía: la guardia de `unidades_producidas == 0`, verificada solo con un CSV temporal.
 - Nota 01 ampliada: la sección 6 incluye ahora el caso de `return` dentro de un bucle, con la traza de las tres vueltas. Salió de un error real del estudiante en `prueba def.py`.
 - Observación de método: el tutor dirigió la sesión sin leer las skills del proyecto, porque no se cargan solas cuando el directorio de trabajo no es `Python desde 0`. El estudiante tuvo que señalarlo. Se incumplieron las reglas de turno (una tabla, una pregunta, una tarea por mensaje) y se anunció el cierre de S10-B1 sin invocar `cerrar-bloque-aprendizaje`. Registrado en la memoria persistente del asistente.
+
+## [2026-08-04 18:25] bloque-validado | S10-B2
+
+- Evidencia: `analizador-produccion/analizador_produccion.py`, líneas 101-103.
+- Verificación: revisión estática, ejecución observada en los tres caminos y transferencia a un error nuevo.
+- Nota: [[35 - S10-B2 - Validar que el archivo exista y sea legible]]
+- Índice actualizado: sí, dentro de «Semana 10 — Programa de consola».
+- El bloque se resolvió con una sola rama nueva, `except PermissionError`, escrita y alineada por el estudiante a la primera. Los tres caminos los ejecutó él en su terminal: carpeta `datos` devuelve `No se puede leer: datos`; `datos/no_existe.csv` devuelve el mensaje de `FileNotFoundError`; `datos/produccion.csv` devuelve 5 válidos, 1 rechazado y `440 28 412 34`.
+- Obstáculo principal, y no era de código: reportó dos veces el mensaje de uso como salida de `python analizador_produccion.py datos`. Ejecutaba con el botón ▶ de VS Code, que lanza `python archivo.py` sin argumentos, entra por el guardián de `len(sys.argv) < 2` y no llega al `try`. El diagnóstico apuntaba en falso al `except` mientras el código ya estaba correcto y guardado. Se resolvió comparando la salida del botón con la del comando escrito a mano en la terminal integrada. Merece recordarse en S10-B4, que es precisamente «probar rutas válidas e inválidas en PowerShell».
+- Explicación: su primera formulación de dónde sale el nombre del error fue imprecisa, «en el código de error». Acertaba en lo esencial —la información la da Python— pero esa expresión señala igual de bien al `Errno 13`, que no sirve. Tras afinar qué trozo de la última línea del traceback se copia, transfirió sin ayuda: ante `UnicodeDecodeError: 'utf-8' codec can't decode byte 0xf1...` escribió `except UnicodeDecodeError:`.
+- Observación de método: se perdió el hilo a mitad de sesión y el estudiante lo dijo con estas palabras, «me siento muy perdido en este punto, no sé qué hacer». La causa fue intercalar tareas ajenas al bloque entre pasos: instalar la skill `find-skills`, revisar la lista de skills y mirar configuración. Funcionó reducir el alcance a cinco pasos numerados y una sola acción concreta.
+- Fuera del bloque, a petición del estudiante: instalada la skill `find-skills` de `vercel-labs/skills` en `.agents/skills/find-skills`, con `skills-lock.json` nuevo en la raíz del repositorio. El instalador mostró `Gen: Safe`, `Socket: 0 alerts` y `Snyk: Med Risk`, sin motivo detallado. La skill es un único `SKILL.md` sin código ejecutable.
+- Pendiente heredado a S10-B3: docstrings y anotaciones de tipo de las dos funciones, más las constantes con nombre para los códigos de salida.
