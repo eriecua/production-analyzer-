@@ -29,7 +29,7 @@ En `analizador_produccion.py`, una segunda rama `except PermissionError:` debajo
 
 - Archivo: `analizador-produccion/analizador_produccion.py`, líneas 101-103.
 - Revisión: se inspeccionó el archivo guardado.
-- Ejecución: observada en los tres caminos, ejecutados por el estudiante en su terminal. Con `datos` (carpeta) devuelve `No se puede leer: datos` y código 1; con `datos/no_existe.csv` devuelve `No existe un archivo llamado: datos/no_existe.csv` y código 1; con `datos/produccion.csv` devuelve 5 registros válidos, 1 rechazado y los totales `440 28 412 34`, con código 0.
+- Ejecución: observada en los tres caminos. Los mensajes los produjo y reportó el estudiante desde su terminal; los códigos de salida los confirmó el tutor sobre el mismo archivo guardado. Con `datos` (carpeta) devuelve `No se puede leer: datos` y código 1; con `datos/no_existe.csv` devuelve `No existe un archivo llamado: datos/no_existe.csv` y código 1; con `datos/produccion.csv` devuelve 5 registros válidos, 1 rechazado y los totales `440 28 412 34`, con código 0.
 - Explicación: demostrada por transferencia. Ante un error que nunca había visto, `UnicodeDecodeError: 'utf-8' codec can't decode byte 0xf1 in position 12`, escribió sin ayuda `except UnicodeDecodeError:`.
 - Método de validación: revisión estática, ejecución desde la terminal y transferencia a un error nuevo.
 
