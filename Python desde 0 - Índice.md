@@ -86,6 +86,10 @@ Este apartado reúne exclusivamente las notas del programa de Python. Está sepa
 - [[36 - S10-B3 - Codigos y mensajes de salida]] — Cuatro constantes con nombre para los códigos de salida, el criterio para separarlos («qué tiene que hacer distinto quien recibe el número»), `$LASTEXITCODE` como evidencia, y los docstrings y anotaciones de tipo de las dos funciones. Estado: validado.
 - [[37 - S10-B4 - Probar rutas validas e invalidas]] — Los tres ejes por los que entra información, el `KeyError` de un CSV al que le falta una columna, y por qué las rutas relativas de `salidas/` atan el programa a un directorio. Estado: pendiente de validación; falta la explicación en frío.
 
+## Semana 11 — Validaciones y pruebas
+
+- [[38 - Paso previo a S11-B1 - Validar la cabecera del CSV]] — `lector.fieldnames` contra la lista de columnas obligatorias, `SALIDA_FALTA_DATO = 4`, y la guardia de `fieldnames is None` para el archivo vacío. Primera de las nueve validaciones. Estado: pendiente de validación; falta la explicación.
+
 ## Prácticas de transferencia
 
 - [[20 - Practica de transferencia - Calculadora validada]] — Calculadora interactiva con validación de números, operadores y repetición S/N. Estado: validado como práctica complementaria; no cierra un bloque oficial.
