@@ -40,17 +40,20 @@ No escribió código Python en este bloque. El objetivo era descubrir casos, no 
   - Desde otro directorio, con la ruta de entrada correcta: lee bien el CSV (`440 28 412 34`) y luego `FileNotFoundError: [Errno 2] No such file or directory: 'salidas/resumen_por_producto.csv'` en la línea 125. Código `1`.
   - Restauración comprobada: desde `analizador-produccion/`, `datos/produccion.csv` vuelve a devolver `440 28 412 34` y código `0`. El tutor leyó los tres archivos de `salidas/` antes y después: quedaron reparados.
 - Daño colateral verificado, no supuesto: tras el `KeyError`, `resumen_por_producto.csv` quedó **solo con la cabecera** —el modo `"w"` lo había vaciado antes de morir— mientras `resumen_por_turno.csv` y `resumen_general.csv` conservaban datos de la ejecución anterior. Los tres reportes dejaron de contar la misma historia sin que nada lo avisara.
-- Explicación: **no demostrada.** Pidió explícitamente la explicación («explícame qué pasó aquí») y, después de recibirla, siguió diagnosticando el segundo fallo como «tenemos mal la ruta». Los dos diagnósticos son del tutor.
+- Explicación: **demostrada a medias**, y en la misma sesión, no en frío. Él pidió resolverlo aquí en lugar de esperar a un chat nuevo; se le advirtió del límite de esa medición y se aceptó su decisión.
+  - **Primera rotura, el `KeyError`: demostrada.** Tras tres intentos llegó con analogía propia — «yo llamo a un auxiliar a buscar un archivo que otra persona debió entregar; al no encontrarlo me señala que no está» — y cerró con la distinción correcta cuando se le contrastó clave inexistente contra clave vacía: «no existe producto, ni el contenido de él». La analogía es suya y captura lo esencial: el hueco existía desde el principio y nadie se enteró hasta que alguien fue a pedirlo.
+  - **Segunda rotura, la ruta relativa: no demostrada.** Sus dos intentos apuntaron a navegar entre carpetas y luego a «algo escribí en la terminal, no me fijé». La explicación es del tutor.
 - Método de validación: ejecución observada en cuatro caminos y lectura directa de `salidas/` por el tutor.
 
 ## Lo que falta para validar
 
-Que explique con sus palabras, **en frío y en un chat nuevo**, las dos roturas que encontró:
+Queda **una sola** pregunta, para el arranque de la Semana 11:
 
-1. Por qué un CSV al que le falta una columna revienta en `calcular_resumen_por_producto` y no al abrir el archivo.
-2. Por qué el mismo comando funciona desde `analizador-produccion/` y falla desde la carpeta de arriba.
+> Por qué el mismo comando funciona desde `analizador-produccion/` y falla desde la carpeta de arriba, aunque la ruta del CSV de entrada sea correcta en los dos casos.
 
-Preguntárselo en esta misma sesión mediría la memoria de la conversación, no la comprensión.
+Lo que tiene que aparecer en su respuesta: que `"salidas/..."` es una ruta **relativa al directorio del terminal**, no al del script; que la ruta de entrada la escribe él y por eso la adaptó al moverse, mientras que las tres de salida están escritas a mano en el código y no se adaptan; y que `open(..., "w")` crea el archivo pero nunca la carpeta.
+
+La primera pregunta ya no hace falta: la explicó él el 2026-08-05, aunque en la misma sesión. Si al preguntarle la segunda se ve dudar también en la primera, volver a plantearlas juntas.
 
 ## Errores y correcciones
 
