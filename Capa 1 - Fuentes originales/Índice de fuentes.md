@@ -22,6 +22,7 @@ Esta carpeta conserva los documentos originales que sirven como fuente principal
 | [[Libros de programación/Power BI 4 in 1- Beginners Guide+ Tips and Tricks+ Simple and Effective Strategies to learn Power Bi and Power Query+ An… (Jones, Daniel) (z-library.sk, 1lib.sk, z-lib.sk).pdf\|Power BI 4 in 1]] | Daniel Jones | 489 | 10.86 MiB | `3237856456EDC62A326DAA0FB428E01847CA47B648B13A64B60F5D7EB97F4F17` |
 | [[Libros de programación/Power Pivot and Power BI. The Excel User’s Guide to DAX, Power Query, Power BI  Power Pivot in Excel 2010-2016 (Rob Collie, Avichal Singh) (z-library.sk, 1lib.sk, z-lib.sk).pdf\|Power Pivot and Power BI]] | Rob Collie, Avichal Singh | 330 | 14.79 MiB | `501A447F62823A08C9DD8412C391EAD205D9C1162EE8D2EEAD5F9D7A48E9286` |
 | [[Libros de programación/The Art and Science of Teaching A Comprehensive Framework for Effective Instruction (Robert J. Marzano) (z-library.sk, 1lib.sk, z-lib.sk).pdf\|The Art and Science of Teaching]] | Robert J. Marzano (ASCD, 2007) | 234 | 1.60 MiB | `3D809B47179B879BF9E7467AF73712119252925F1332E09EE45196D1A0DFA3C3` |
+| [[Libros de programación/SQL Queries for Mere Mortals - John L. Viescas.pdf\|SQL Queries for Mere Mortals]] | John L. Viescas | 1051 | 12.24 MiB | `8B0B3E72E2E1182F4E87A98E70F6CA9F776E17FDAEF34E4BB3F6DB6483ACC217` |
 
 ## Procedencia y verificación
 
@@ -32,6 +33,7 @@ Esta carpeta conserva los documentos originales que sirven como fuente principal
 - Los cinco libros nuevos se verificaron con `pypdf`: se confirmó apertura, cantidad de páginas, autor de metadatos y hash SHA-256.
 - El hash permite comprobar en el futuro que una fuente no cambió.
 - Registrar una edición nueva como otro archivo; nunca sobrescribir la edición ya incorporada.
+- Fecha de incorporación (Viescas, SQL): 2026-08-05. Procedencia distinta a la de los demás: biblioteca local de Calibre, `D:\Libros\Calibre\John L. Viescas\`, no z-library. Verificado con `pypdf`: 1051 páginas, autor `John L. Viescas` y título `SQL Queries for Mere Mortals®: A Hands-On Guide to Data Manipulation in SQL` en los metadatos, más hash SHA-256. **Aviso al citarlo:** los metadatos declaran `calibre 9.12.0` como creador y productor, así que este PDF es una conversión, no el original del editor. Sus 1051 páginas no se corresponden con la paginación impresa. Al aplicar la regla de citar página exacta, la referencia `#page=N` apunta a este archivo concreto, no a la edición en papel.
 - Fecha de incorporación (Marzano, pedagogía): 2026-07-27. Verificado con `pypdf`: 234 páginas y hash SHA-256. Sus metadatos internos están corruptos —autor `debra`, título `10408-00_FM.indd`, artefactos de la maquetación—, por lo que autor y título de la tabla proceden de la portada y la página de créditos, no de los metadatos.
 
 ## El libro de pedagogía es de otra naturaleza
@@ -51,6 +53,23 @@ El plan de aprendizaje ya trabaja con registros de producción en CSV, agrupaci�
 - [[Libros de programación/Power BI 4 in 1- Beginners Guide+ Tips and Tricks+ Simple and Effective Strategies to learn Power Bi and Power Query+ An… (Jones, Daniel) (z-library.sk, 1lib.sk, z-lib.sk).pdf\|Power BI 4 in 1]] y [[Libros de programación/Power Pivot and Power BI. The Excel User’s Guide to DAX, Power Query, Power BI  Power Pivot in Excel 2010-2016 (Rob Collie, Avichal Singh) (z-library.sk, 1lib.sk, z-lib.sk).pdf\|Power Pivot and Power BI]] — DAX, Power Query y Power BI; útiles cuando el objetivo pase de calcular KPIs en Python a presentarlos en un dashboard.
 
 Estos libros quedan registrados como fuente disponible. Siguiendo la regla de la Capa 3, no se debe sintetizar su contenido en la Capa 2 hasta que un bloque del plan lo requiera.
+
+## El libro de SQL nuevo cubre un escalón que faltaba
+
+[[Libros de programación/SQL Queries for Mere Mortals - John L. Viescas.pdf\|SQL Queries for Mere Mortals]] no solapa con los dos libros de SQL ya registrados: los completa por abajo. Tanimura enseña a pensar analíticamente con SQL y el Cookbook resuelve problemas concretos, pero ambos dan por sabida la sintaxis. Viescas es el único que la enseña desde cero.
+
+Su estructura, leída del índice del propio PDF:
+
+- Parte I — bases de datos relacionales: qué es relacional, estructura sana, historia de SQL.
+- Parte II — lo básico: consulta simple e `INTRODUCING SELECT`, columnas más allá de las literales, filtrado.
+- Parte III — varias tablas: pensar en conjuntos, `INNER JOIN`, `OUTER JOIN`, `UNION`, subconsultas.
+- Parte IV — resumir y agrupar: totales, agrupación, filtrado de grupos.
+- Parte V — modificar conjuntos de datos: `UPDATE`, `INSERT`, `DELETE`.
+- Parte VI — problemas difíciles, hasta funciones de ventana (cap. 22).
+
+Las Partes IV y VI son las que conectan directamente con lo que el proyecto ya hace a mano en Python: agrupar por turno y por producto y calcular indicadores sobre cada grupo. Cuando se active la ruta de análisis de datos, esa es la traducción natural del analizador a SQL.
+
+Sigue aplicando la regla de la Capa 3: registrado como fuente disponible, sin sintetizar en la Capa 2 hasta que un bloque lo requiera. Su lugar dentro de la ruta está anotado en [[Capa 2 - Wiki/Próxima ruta - Análisis de datos (post-fundamentos)]].
 
 ## Fuentes web registradas
 

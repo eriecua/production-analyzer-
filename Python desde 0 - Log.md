@@ -576,3 +576,14 @@ Registro cronológico y acumulativo. Las entradas nuevas se agregan al final; no
 - Aciertos propios sin que se le pidieran: reordenó las constantes por número de menos a más grave, renombró `SALIDA_NO_EXISTE` a `SALIDA_NO_EXISTE_ARCHIVO` para que se entendiera leída sola, eligió `list[dict]` en vez de `list` a secas, y decidió con argumento que `SALIDA_OK` fuera explícita: «prefiero que quede definido, luego limpiamos código».
 - Observación de método: pidió dos veces que se le dieran los nombres hechos. Se le dio el prefijo y una constante de ejemplo, y los otros tres los escribió él. El vocabulario nuevo —la palabra `list` como tipo— sí se le dio directamente, porque no era deducible.
 - Pendiente para el paso previo a S11-B1: las ocho reglas de validación de `PROYECTO.md` que faltan, leyendo `id_registro` y `fecha`. Detalle menor sin cerrar: comentario suelto `#int` en la línea 32.
+
+## [2026-08-05 19:52] fuente-incorporada | Capa 1
+
+- Fuente: `Capa 1 - Fuentes originales/Libros de programación/SQL Queries for Mere Mortals - John L. Viescas.pdf`
+- Verificación: `pypdf` confirma 1051 páginas y autor `John L. Viescas` en los metadatos. SHA-256 `8B0B3E72E2E1182F4E87A98E70F6CA9F776E17FDAEF34E4BB3F6DB6483ACC217`, 12.24 MiB.
+- Índice actualizado: sí, `Capa 1 - Fuentes originales/Índice de fuentes` — fila en la tabla, entrada de procedencia y una sección nueva con la estructura del libro.
+- Procedencia distinta a la del resto: biblioteca local de Calibre en `D:\Libros\Calibre\John L. Viescas\`, no z-library. Copiado al vault con un nombre limpio, sin el `(r)` del original.
+- Aviso registrado en el índice de fuentes: los metadatos declaran `calibre 9.12.0` como creador y productor, así que el PDF es una conversión y sus 1051 páginas no coinciden con la paginación impresa. Las citas `#page=N` valen para este archivo, no para la edición en papel.
+- Conexión al grafo: enlazado desde `Índice de fuentes` (a su vez enlazado desde `Python desde 0 - Índice`) y desde [[Capa 2 - Wiki/Próxima ruta - Análisis de datos (post-fundamentos)]], donde se añadió como punto de entrada de la sección de SQL. No queda huérfano.
+- Por qué entra: es el escalón que faltaba. Tanimura y el `SQL Cookbook` dan por sabida la sintaxis; este es el único de los tres que enseña SQL desde cero. Su estructura se leyó del índice del propio PDF, no se supuso: Parte I modelo relacional, Parte II `SELECT` y filtrado, Parte III joins y subconsultas, Parte IV agrupación, Parte V modificación de datos, Parte VI hasta funciones de ventana.
+- Sin sintetizar en la Capa 2. Regla de la Capa 3: queda como fuente disponible hasta que un bloque del plan la requiera.
