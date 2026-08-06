@@ -3,8 +3,9 @@ tags: [python, aprendizaje, semana-10, bloque-4]
 tipo: bloque
 semana: 10
 bloque: S10-B4
-estado: pendiente-de-validacion
+estado: validado
 fecha: 2026-08-05
+fecha_validacion: 2026-08-06
 ---
 
 # S10-B4 - Probar rutas válidas e inválidas
@@ -15,7 +16,7 @@ Encontrar al menos una entrada con la que el programa todavía revienta con trac
 
 ## Estado
 
-**Pendiente de validación.** La ejecución está completa y la hizo él; lo que falta es la explicación con sus palabras. Ver la sección «Lo que falta para validar».
+**Validado el 2026-08-06.** La parte ejecutable se cerró el 2026-08-05. La explicación que faltaba —la de la ruta relativa— se midió al día siguiente con un experimento nuevo, no repitiendo la pregunta. Ver «Cómo se validó la segunda rotura».
 
 ## Conocimiento esencial
 
@@ -40,20 +41,38 @@ No escribió código Python en este bloque. El objetivo era descubrir casos, no 
   - Desde otro directorio, con la ruta de entrada correcta: lee bien el CSV (`440 28 412 34`) y luego `FileNotFoundError: [Errno 2] No such file or directory: 'salidas/resumen_por_producto.csv'` en la línea 125. Código `1`.
   - Restauración comprobada: desde `analizador-produccion/`, `datos/produccion.csv` vuelve a devolver `440 28 412 34` y código `0`. El tutor leyó los tres archivos de `salidas/` antes y después: quedaron reparados.
 - Daño colateral verificado, no supuesto: tras el `KeyError`, `resumen_por_producto.csv` quedó **solo con la cabecera** —el modo `"w"` lo había vaciado antes de morir— mientras `resumen_por_turno.csv` y `resumen_general.csv` conservaban datos de la ejecución anterior. Los tres reportes dejaron de contar la misma historia sin que nada lo avisara.
-- Explicación: **demostrada a medias**, y en la misma sesión, no en frío. Él pidió resolverlo aquí en lugar de esperar a un chat nuevo; se le advirtió del límite de esa medición y se aceptó su decisión.
-  - **Primera rotura, el `KeyError`: demostrada.** Tras tres intentos llegó con analogía propia — «yo llamo a un auxiliar a buscar un archivo que otra persona debió entregar; al no encontrarlo me señala que no está» — y cerró con la distinción correcta cuando se le contrastó clave inexistente contra clave vacía: «no existe producto, ni el contenido de él». La analogía es suya y captura lo esencial: el hueco existía desde el principio y nadie se enteró hasta que alguien fue a pedirlo.
-  - **Segunda rotura, la ruta relativa: no demostrada.** Sus dos intentos apuntaron a navegar entre carpetas y luego a «algo escribí en la terminal, no me fijé». La explicación es del tutor.
+- Explicación: **demostrada, las dos roturas.**
+  - **Primera rotura, el `KeyError`: demostrada** el 2026-08-05, en la misma sesión. Tras tres intentos llegó con analogía propia — «yo llamo a un auxiliar a buscar un archivo que otra persona debió entregar; al no encontrarlo me señala que no está» — y cerró con la distinción correcta cuando se le contrastó clave inexistente contra clave vacía: «no existe producto, ni el contenido de él». La analogía es suya y captura lo esencial: el hueco existía desde el principio y nadie se enteró hasta que alguien fue a pedirlo.
+  - **Segunda rotura, la ruta relativa: demostrada** el 2026-08-06, con un caso nuevo. Ese día sus dos primeros intentos habían apuntado a navegar entre carpetas y a «algo escribí en la terminal, no me fijé»; la explicación de entonces era del tutor.
 - Método de validación: ejecución observada en cuatro caminos y lectura directa de `salidas/` por el tutor.
 
-## Lo que falta para validar
+## Cómo se validó la segunda rotura
 
-Queda **una sola** pregunta, para el arranque de la Semana 11:
+La sesión del 2026-08-05 quedó comprometida para medir esto: la explicación ya se había dado en voz alta. Preguntar lo mismo al día siguiente habría medido memoria. Se sustituyó por un **caso nuevo que nunca se había visto**, diseñado para que la respuesta no pudiera recordarse:
 
-> Por qué el mismo comando funciona desde `analizador-produccion/` y falla desde la carpeta de arriba, aunque la ruta del CSV de entrada sea correcta en los dos casos.
+```powershell
+cd "C:\Users\MSI ERICK\Documents\Python desde 0"
+mkdir salidas
+python analizador-produccion\analizador_produccion.py analizador-produccion\datos\produccion.csv; $LASTEXITCODE
+dir salidas
+```
 
-Lo que tiene que aparecer en su respuesta: que `"salidas/..."` es una ruta **relativa al directorio del terminal**, no al del script; que la ruta de entrada la escribe él y por eso la adaptó al moverse, mientras que las tres de salida están escritas a mano en el código y no se adaptan; y que `open(..., "w")` crea el archivo pero nunca la carpeta.
+El caso discrimina las dos hipótesis sin ambigüedad: si la ruta se completa con la carpeta del `.py`, los reportes aparecen en `analizador-produccion\salidas\`; si se completa con la del terminal, aparecen en la carpeta nueva de arriba. Son sitios distintos.
 
-La primera pregunta ya no hace falta: la explicó él el 2026-08-05, aunque en la misma sesión. Si al preguntarle la segunda se ve dudar también en la primera, volver a plantearlas juntas.
+Secuencia real de la medición:
+
+1. Se le preguntó qué carpeta usa Windows para completar `"salidas/..."`. Eligió **la del archivo `.py`**. Respuesta incorrecta y muy común.
+2. Se le puso delante la tabla de sus dos ejecuciones del día anterior: el `.py` no se había movido, solo el terminal, y el resultado cambió. Es un experimento controlado y él ya tenía los datos.
+3. Propuso entonces una hipótesis propia: que funciona «dado que dentro del directorio ya existe la carpeta salidas». Es correcta en su mitad y comprobable, así que se ejecutó.
+4. Resultado observado por él: los tres reportes aparecieron en `C:\Users\MSI ERICK\Documents\Python desde 0\salidas\`, con código de salida `0`.
+5. Conclusión suya, sin ayuda: **«la que yo indiqué en el terminal. Le dije abre hasta aquí y crea esto y luego ejecuta esto.»**
+6. Cierre sobre la asimetría entrada/salida: identificó que la ruta de entrada la adapta él porque pasa por sus manos en cada ejecución.
+
+Vale más que la respuesta pedida: cambió de hipótesis ante la evidencia en lugar de defender la primera.
+
+Hallazgo del experimento, digno de registro: **con la carpeta creada, el programa no falla — escribe los reportes en el sitio equivocado y devuelve `0`.** Un fallo silencioso es peor que el `FileNotFoundError` original, que al menos gritaba.
+
+Antes de ese paso hubo dos respuestas que describían el flujo general —«lee de `datos` y escribe en `salidas`»— sin responder *cuál* `salidas`. Se rechazaron señalando el hueco exacto en lugar de aceptarlas.
 
 ## Errores y correcciones
 
@@ -70,4 +89,5 @@ Arreglar las dos roturas **no** es de este bloque. Corresponde al paso previo a 
 
 - [[36 - S10-B3 - Codigos y mensajes de salida]]
 - [[35 - S10-B2 - Validar que el archivo exista y sea legible]]
+- [[38 - Paso previo a S11-B1 - Validar la cabecera del CSV]]
 - [[Python desde 0 - Índice]]
