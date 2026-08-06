@@ -640,3 +640,28 @@ Registro cronológico y acumulativo. Las entradas nuevas se agregan al final; no
 - Dos respuestas intermedias suyas describían el flujo general —«lee de datos y escribe en salidas»— sin responder *cuál* `salidas`. Se rechazaron señalando el hueco exacto en vez de aceptarlas por cercanía.
 - Limpieza: la carpeta `salidas` del experimento se borró y `analizador-produccion/salidas/` se restauró reejecutando el camino bueno, `440 28 412 34` y código 0.
 - **Semana 10 cerrada: cuatro de cuatro bloques validados.**
+
+## [2026-08-06 12:10] correccion-de-registro | paso-previo-S11-B1
+
+- Corrige la cuenta de validaciones dada el 2026-08-05 en la nota 38 y en el log: se escribió «primera de las nueve, quedan ocho» y **no es exacto**.
+- Cuenta real contra `PROYECTO.md`, comprobada leyendo el código guardado: de las nueve reglas ya están hechas **tres** — valores no numéricos (`except ValueError`, línea 107), defectuosas mayores que producidas (línea 110) y divisiones entre cero (las tres guardias `None` de las líneas 27, 60 y 64). Las tres salieron de S10-B1 y nadie las contó.
+- La validación de cabecera que escribió el 2026-08-05 **no está entre las nueve**: `PROYECTO.md` no pide comprobar columnas ausentes. Es un añadido suyo, no una de las reglas del plan.
+- Faltan por tanto **seis**, no ocho: campos vacíos, fechas inválidas, cantidades negativas, meta no positiva, horas no positivas e identificadores duplicados. Las dos últimas obligan a leer `id_registro` y `fecha`.
+- Error del tutor al arrastrar sin revisar la cifra de la auditoría previa a la Semana 10, que era correcta cuando se midió y dejó de serlo tras S10-B1.
+
+## [2026-08-06 12:15] bloque-validado | S11-B1
+
+- Evidencia: `analizador-produccion/tests/test_resumen_por_producto.py`, líneas 31-37; llamadas manuales borradas en los dos archivos de `tests/`.
+- Verificación: seis ejecuciones observadas de `python -m pytest tests/ -q`, mutación del código y explicación propia.
+- Nota: [[39 - S11-B1 - Aprender pruebas unitarias basicas]]
+- Índice actualizado: sí.
+- **Decisión de método tomada con él y que cambia el plan.** Propuso escribir las validaciones que faltan mientras avanza, en vez de en un paso previo aparte. Se aceptó porque arregla un agujero real: S11-B3 dice «probar validaciones» y presupone que existen, así que escribir cada regla junto a su prueba evita hacer el trabajo dos veces. El paso previo a S11-B1 deja de existir como bloque separado y sus seis validaciones restantes se reparten por la Semana 11, emparejadas con su prueba.
+- Se le hizo ver que no va retrasado: la Semana 9 se cerró con 57 días de adelanto. Lo que hay es deuda de las Semanas 3, 6 y 7, no retraso.
+- Antes de arrancar se limpiaron los dos comentarios sueltos `#int` y se confirmó la línea de salida en verde: 4 pruebas y `440 28 412 34` con código 0. Criterio dado: no se aprende a probar sobre un programa ya roto.
+- Secuencia del bloque: borrar las llamadas manuales y los `print("OK - ...")` de los dos archivos y ver que pytest sigue diciendo `4 passed`; romper una aserción a propósito (`999` por `460`) y leer `..F.`, `assert 460 == 999` y `1 failed, 3 passed`; escribir la quinta prueba; y comprobarla por mutación.
+- **Hallazgo del bloque: su quinta prueba estaba dormida.** Comprobaba `unidades_producidas == 0` en vez de `tasa_defectos_pct is None`, así que pasaba igual con la guardia sana y rota. No se detectó leyendo el código: se detectó porque la mutación no la hizo saltar. `5 passed` con el programa roto es la señal.
+- Explicación suya de la aserción: «el programa buscó en el diccionario el valor de unidades producidas y comparó con la cantidad que yo escribí». Diagnóstico suyo de la prueba dormida: «estábamos haciendo el test con otra clave». Cierre suyo, ante si se habrían enterado sin romper la guardia: **«negativo, solo verificando manualmente»**.
+- Errores reales: `SyntaxError` por comas de más en el diccionario, corregido comparándolo con su propia línea 23; `TypeError` por escribir los números entre comillas, tras habérsele señalado la diferencia y elegir las comillas; y sustituir el esqueleto `assert resultado[0][___] is None` por una aserción propia sobre otra clave, de donde salió la prueba dormida.
+- **Cuarto incidente de lanzador.** Ejecutó `pytest test/` sin la `s` desde dentro de `tests/`, y después usó el botón ▶ de VS Code, que lanzó el archivo en lugar de pytest. La salida vacía del segundo caso sirvió de prueba de que, borradas las llamadas manuales, el archivo ya no ejecuta nada solo.
+- Pidió dos veces instrucción más literal — «no entiendo, sé más literal» —. Funcionó dar el número de línea, el texto exacto a borrar o escribir, y el comando. Confirma lo guardado el 2026-08-05.
+- Pendiente que abre el bloque siguiente: las validaciones viven dentro de `if __name__ == "__main__":`, donde pytest no entra. Extraerlas a funciones es lo que habilita el resto de la Semana 11. Se le anticipó sin resolverlo.

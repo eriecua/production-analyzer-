@@ -15,7 +15,9 @@ Que un CSV al que le falta una columna obligatoria falle con un mensaje que diga
 
 ## Estado
 
-**Pendiente de validación.** Escrito, ejecutado y verificado por ambos; falta la explicación con sus palabras. Es la primera de las nueve validaciones del paso previo: quedan ocho.
+**Pendiente de validación.** Escrito, ejecutado y verificado por ambos; falta la explicación con sus palabras.
+
+*Corregido el 2026-08-06:* esta validación **no es una de las nueve** de `PROYECTO.md` —la especificación no pide comprobar columnas ausentes—, sino un añadido suyo. Y de las nueve ya había tres hechas desde S10-B1, no una. Faltan seis. Ver la entrada `correccion-de-registro` del log.
 
 ## Conocimiento esencial
 
@@ -55,9 +57,11 @@ Los dos salieron de probar casos límite y **ninguno está resuelto**:
 
 ## Pendiente
 
-Las ocho validaciones restantes de `PROYECTO.md`: campos vacíos, fechas inválidas, cantidades negativas, meta no positiva, horas no positivas, identificadores duplicados. Las de valores no numéricos, defectuosas mayores que producidas y divisiones entre cero ya estaban hechas desde S10-B1.
+Las **seis** validaciones restantes de `PROYECTO.md`: campos vacíos, fechas inválidas, cantidades negativas, meta no positiva, horas no positivas e identificadores duplicados. Las de valores no numéricos, defectuosas mayores que producidas y divisiones entre cero ya estaban hechas desde S10-B1.
 
 Falta también leer `id_registro` y `fecha`, que hoy se exigen en la cabecera pero no se usan para nada.
+
+*Desde el 2026-08-06 este paso previo deja de existir como bloque aparte:* las seis validaciones se escriben dentro de la Semana 11, cada una emparejada con su prueba. Decisión suya, registrada en [[39 - S11-B1 - Aprender pruebas unitarias basicas]].
 
 ## Conexiones
 

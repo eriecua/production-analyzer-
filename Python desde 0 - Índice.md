@@ -88,7 +88,8 @@ Este apartado reúne exclusivamente las notas del programa de Python. Está sepa
 
 ## Semana 11 — Validaciones y pruebas
 
-- [[38 - Paso previo a S11-B1 - Validar la cabecera del CSV]] — `lector.fieldnames` contra la lista de columnas obligatorias, `SALIDA_FALTA_DATO = 4`, y la guardia de `fieldnames is None` para el archivo vacío. Primera de las nueve validaciones. Estado: pendiente de validación; falta la explicación.
+- [[38 - Paso previo a S11-B1 - Validar la cabecera del CSV]] — `lector.fieldnames` contra la lista de columnas obligatorias, `SALIDA_FALTA_DATO = 4`, y la guardia de `fieldnames is None` para el archivo vacío. Validación añadida que no estaba entre las nueve de `PROYECTO.md`. Estado: pendiente de validación; falta la explicación.
+- [[39 - S11-B1 - Aprender pruebas unitarias basicas]] — Cómo encuentra pytest las pruebas por el prefijo `test_`, cómo se lee un fallo, y la prueba de mutación: romper a propósito lo que una prueba vigila para saber si de verdad la vigila. Su quinta prueba resultó estar dormida. Estado: validado.
 
 ## Prácticas de transferencia
 
