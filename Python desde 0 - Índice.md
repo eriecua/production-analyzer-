@@ -91,6 +91,7 @@ Este apartado reúne exclusivamente las notas del programa de Python. Está sepa
 - [[38 - Paso previo a S11-B1 - Validar la cabecera del CSV]] — `lector.fieldnames` contra la lista de columnas obligatorias, `SALIDA_FALTA_DATO = 4`, y la guardia de `fieldnames is None` para el archivo vacío. Validación añadida que no estaba entre las nueve de `PROYECTO.md`. Estado: pendiente de validación; falta la explicación.
 - [[39 - S11-B1 - Aprender pruebas unitarias basicas]] — Cómo encuentra pytest las pruebas por el prefijo `test_`, cómo se lee un fallo, y la prueba de mutación: romper a propósito lo que una prueba vigila para saber si de verdad la vigila. Su quinta prueba resultó estar dormida. Estado: validado.
 - [[40 - S11-B2 - Probar calculos y limites]] — Por qué una función que valida devuelve el motivo en vez de hacer `sys.exit`, auditar una función contando sus `return`, y por qué una prueba de lista vacía es débil por naturaleza: `[]` es también lo que devuelve no hacer nada. Estado: validado.
+- [[41 - S11-B3 - Probar validaciones]] — `validar_fila` para campos vacíos, con su prueba y su mutación predicha por él antes de ejecutar. Los dos conceptos que costaron: `in` mira las etiquetas del diccionario y `registro[columna]` mira el valor; y `None` no es `''`. Recoge además la decisión de reducir el alcance de las validaciones y cerrar el proyecto. Estado: **pendiente de validación**; falta que explique el flujo principal en frío.
 
 ## Prácticas de transferencia
 
