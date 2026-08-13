@@ -92,6 +92,7 @@ Este apartado reúne exclusivamente las notas del programa de Python. Está sepa
 - [[39 - S11-B1 - Aprender pruebas unitarias basicas]] — Cómo encuentra pytest las pruebas por el prefijo `test_`, cómo se lee un fallo, y la prueba de mutación: romper a propósito lo que una prueba vigila para saber si de verdad la vigila. Su quinta prueba resultó estar dormida. Estado: validado.
 - [[40 - S11-B2 - Probar calculos y limites]] — Por qué una función que valida devuelve el motivo en vez de hacer `sys.exit`, auditar una función contando sus `return`, y por qué una prueba de lista vacía es débil por naturaleza: `[]` es también lo que devuelve no hacer nada. Estado: validado.
 - [[41 - S11-B3 - Probar validaciones]] — `validar_fila` para campos vacíos, con su prueba y su mutación predicha por él antes de ejecutar. Los dos conceptos que costaron: `in` mira las etiquetas del diccionario y `registro[columna]` mira el valor; y `None` no es `''`. Recoge además la decisión de reducir el alcance de las validaciones y cerrar el proyecto. Estado: validado.
+- [[43 - S11-B4 - Corregir errores y simplificar el codigo]] — Diccionarios paralelos reducidos a un diccionario de fichas (`datos[turno]["unidades"]`), que es la forma de una fila de pandas. Un error escondido detrás de otro, y las once pruebas usadas como red de seguridad de un refactor. Estado: validado.
 
 ## Cierre del proyecto
 

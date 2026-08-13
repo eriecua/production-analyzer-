@@ -726,3 +726,17 @@ Registro cronológico y acumulativo. Las entradas nuevas se agregan al final; no
 - **Lo que necesitó ayuda:** su primera respuesta sobre el momento del cálculo fue «durante la lectura»; creía que la validación de campo vacío en una fila «no estaba definida», y la escribió él dos días antes; y su relato final se paró antes de escribir los reportes, que nombró solo tras una pregunta directa.
 - **Deuda saldada:** revisó el README línea por línea y lo dio por bueno. Estaba abierta desde el 2026-08-11 porque lo redactó el tutor.
 - Observación: la nota 38 sigue `pendiente de validación`. Hoy explicó bien que la cabecera se comprueba antes de leer datos, pero no se le preguntó por la guardia de `fieldnames is None`, que es lo que le faltaba. No se da por saldada.
+
+## [2026-08-13 01:00] bloque-validado | S11-B4
+
+- Evidencia: `analizador-produccion/analizador_produccion.py`, funciones `calcular_resumen_por_turno` (líneas 14-38) y `calcular_resumen_por_producto` (líneas 40-71).
+- Verificación: `python -m pytest tests/` da **11 passed** tras los dos refactores; `python analizador_produccion.py datos/produccion.csv` da 5 válidos, 1 rechazado y código 0, con `resumen_por_producto.csv` conservando las mismas cifras que antes del cambio. Prueba de mutación ejecutada y revertida.
+- Nota: [[43 - S11-B4 - Corregir errores y simplificar el codigo]]
+- Índice actualizado: sí.
+- **Estado: cerrado. La Semana 11 queda completa** (B1, B2, B3 y B4 validados).
+- Se abrió al ver el plan de ProjectLibre, que nombra S11-B4 «Corregir errores y simplificar el código». Hasta entonces no constaba en el registro que ese bloque existiera.
+- **Concepto del bloque:** un diccionario cuyo valor es otro diccionario. Los tres y cuatro diccionarios paralelos de las funciones de resumen pasan a una sola ficha por clave. Es la forma de una fila de un DataFrame de pandas, y por eso este bloque enlaza con la ruta siguiente.
+- **Lo que demostró:** enumeró solo los cuatro puntos de toque del problema antes de que se le dijeran; hizo la segunda mitad de la primera función sin que se le pidiera; **propuso él la transferencia a `calcular_resumen_por_producto`** y la escribió sin esqueleto y sin errores, con cuatro campos y dos guardias. Explicación suya de la ganancia: «en `datos_turno` se acumula el turno, y siempre va a tener unidades, horas y buenas».
+- **Error real y su lección.** Copió las tres líneas de acumulación y dejó las tres escribiendo en `["unidades"]`. Habría dado un reporte por turno con números inventados, y **ninguna prueba lo dijo**: el `NameError` de la segunda mitad reventaba antes y lo tapaba. Comprobado con una mutación deliberada una vez sana la función: `assert 480 == 460`, donde los 20 de más eran las horas metidas en el cajón de las unidades. **Un error puede esconderse detrás de otro; solo se ve el primero de la fila.**
+- **Lo que necesitó ayuda:** la sintaxis anidada `datos[turno]["unidades"]` se la dio el tutor —dijo «no lo sé», y era la respuesta honesta—; el primer refactor llevó esqueleto de huecos; y la lectura del fallo de la mutación necesitó que se le trazara («no entiendo mucho esos test»), aunque después lo reformuló bien.
+- Corregidos además los dos `print` del final de la lectura: «Registro válidos» pasa a «Registros válidos».
