@@ -3,14 +3,15 @@ tags: [python, aprendizaje, semana-11, bloque-3]
 tipo: bloque
 semana: 11
 bloque: S11-B3
-estado: pendiente-de-validacion
-fecha: 2026-08-11
+estado: validado
+fecha: 2026-08-13
 ---
 
 # S11-B3 - Probar validaciones
 
-**Bloque abierto.** Dos sesiones registradas. Falta la explicación del flujo, que se
-aplazó a propósito a un chat en frío.
+**Bloque cerrado el 2026-08-13.** Tres sesiones registradas. La explicación del flujo, que
+se había aplazado a propósito a un chat en frío, se dio y quedó demostrada:
+[[42 - Cierre del proyecto - Explicar el flujo principal]].
 
 ## Objetivo
 
@@ -192,11 +193,17 @@ Estado del programa al cierre de la sesión:
 
 ## Pendiente
 
-1. **Explicar el flujo principal sin copiarlo**, en un chat en frío. Es el único criterio de
-   aceptación de `PROYECTO.md` que queda por cumplir, y el único que no puede hacer el
-   tutor. Los otros cinco están cumplidos.
-2. Confirmar que revisó el README, que redactó el tutor.
+1. ~~**Explicar el flujo principal sin copiarlo**, en un chat en frío.~~ **Cumplido el
+   2026-08-13.** Era el séptimo y último criterio de aceptación de `PROYECTO.md`, y el único
+   que no podía hacer el tutor. Ver [[42 - Cierre del proyecto - Explicar el flujo
+   principal]].
+2. ~~Confirmar que revisó el README, que redactó el tutor.~~ **Cumplido el 2026-08-13**: lo
+   leyó línea por línea y lo dio por bueno.
 3. Deuda documentada y aceptada: fechas inválidas e identificadores duplicados.
+
+**Corrección de una cuenta.** Las dos sesiones anteriores hablaron de «seis criterios de
+aceptación» y de «los otros cinco cumplidos». Son **siete** los que enumera `PROYECTO.md`
+(líneas 40-46). Antes del 2026-08-13 iban 6 de 7; ahora, 7 de 7.
 
 ## Conexiones
 
