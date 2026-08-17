@@ -757,3 +757,14 @@ Registro cronológico y acumulativo. Las entradas nuevas se agregan al final; no
 - **Errores del tutor en el bloque, dos.** Se le pidió revisar la fila 3 del CSV sin haber hecho antes la cuenta (`50 / 12`), de modo que la pista apuntaba a un problema que el tutor no había confirmado. Y en el arranque se le pidieron números redondos sin darle el método para elegirlos; el método —fijar producidas y defectuosas, restar, y elegir las horas entre los divisores— tuvo que darse después, cuando ya había reescrito el archivo dos veces.
 - Observación: la `ñ` de «Mañana» sale partida en dos caracteres al leer el reporte con `Get-Content` en PowerShell. Es la consola mostrando UTF-8 como cp1252, no un defecto del archivo. La secuencia no se reproduce en el registro a propósito: el verificador de codificación del vault la detectaría como corrupción.
 - Observación: sigue abierto de la Semana 12 el S12-B4 y la validación semanal 12, que pide que **otra persona** ejecute el programa usando solo el README. Se le avisó al abrir el bloque.
+
+## [2026-08-17 11:00] bloque-validado | S12-B2
+
+- Evidencia: `analizador-produccion/datos/demo.csv` y `analizador-produccion/datos/demo_esperado.md`, los dos escritos por él.
+- Verificación: los nueve números de `demo_esperado.md` contrastados uno por uno contra `salidas/resumen_por_turno.csv`; coinciden. `python -m pytest tests/` da **11 passed**. `demo_esperado.md` es UTF-8 sin BOM.
+- Nota: [[44 - S12-B2 - CSV de demostracion y resultados esperados]]
+- Índice actualizado: sí. La nota 44 pasa de `pendiente-de-validacion` a `validado`.
+- **Estado: validado.** Completa la entrada `bloque-pendiente` de las 10:00 de hoy, que quedó abierta porque faltaba el segundo entregable. Ahora existen los dos que pide S12-B2: el CSV de demostración y los resultados esperados escritos.
+- Escribió `demo_esperado.md` con los conteos, la tabla de los tres turnos en Markdown y las dos notas que un CSV no podría llevar: que la fila 4 se descarta por falta de fecha, y que el reporte por turno no calcula tasa de defectos. Esa segunda nota es un hallazgo suyo.
+- **Error de método repetido, y ya es la segunda vez: al sustituir un bloque de texto, sobra lo viejo o falta parte de lo nuevo.** Hicieron falta cuatro versiones del archivo. En la segunda desaparecieron las filas de Noche y Tarde al reescribir la tabla, y la vieja cabecera con comas sobrevivió a dos revisiones. Ninguno de los tropiezos fue de contenido: los nueve números fueron correctos desde el principio. Es el mismo patrón del fragmento de código pegado en S11-B3. **Conviene decirle que revise el archivo completo después de editar, no solo la parte recién escrita.**
+- Observación: de la Semana 12 quedan S12-B4 (demostración y retrospectiva) y la validación semanal 12, que pide que **otra persona** ejecute el programa usando solo el README. S12-B1 y S12-B3 estaban cumplidos de facto desde antes.

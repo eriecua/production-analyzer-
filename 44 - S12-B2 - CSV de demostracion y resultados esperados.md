@@ -3,7 +3,7 @@ tags: [python, aprendizaje, semana-12, bloque-2]
 tipo: bloque
 semana: 12
 bloque: S12-B2
-estado: pendiente-de-validacion
+estado: validado
 fecha: 2026-08-17
 ---
 
@@ -50,14 +50,23 @@ Las cinco filas sanas cumplen las tres cuentas limpias, verificadas una por una:
 `producidas / meta` da porcentaje redondo, `defectuosas / producidas` también, y
 `(producidas - defectuosas) / horas` da entero.
 
-Aparte, una tabla de resultados esperados por turno construida en Excel con `SUMAR.SI`,
-escrita antes de ejecutar el programa. **Esa tabla no está todavía en el repositorio**; es
-lo que falta para cerrar el bloque.
+`analizador-produccion/datos/demo_esperado.md`: la verdad de referencia escrita, con tres
+apartados —los conteos esperados, la tabla de los tres turnos en Markdown, y dos notas—.
+Los nueve números de la tabla coinciden con `resumen_por_turno.csv`. La tabla se construyó
+primero en Excel con `SUMAR.SI` **antes de ejecutar el programa**, y se pasó a Markdown
+después de contrastarla.
+
+Las dos notas del final son las que un CSV no podría llevar, y son la mitad del valor del
+documento: que la fila 4 se descarta por falta de fecha, y que el reporte por turno no
+calcula tasa de defectos.
 
 ## Evidencia
 
-- Archivo: `analizador-produccion/datos/demo.csv`
+- Archivos: `analizador-produccion/datos/demo.csv` y
+  `analizador-produccion/datos/demo_esperado.md`
 - Revisión: leídas las seis filas y comprobadas a mano las tres cuentas de cada fila sana.
+  Los nueve números de `demo_esperado.md` verificados uno por uno contra
+  `salidas/resumen_por_turno.csv`.
 - Ejecución: **observada.** `python .\analizador_produccion.py .\datos\demo.csv` da
   `Registros válidos: 5` y `Registros rechazados: 1`, que coincide con lo que él predijo
   antes de ejecutar. `Get-ChildItem .\salidas\` confirma los tres reportes regenerados
@@ -90,6 +99,14 @@ lo que falta para cerrar el bloque.
   pregunta de por qué una tabla que se equivoca sigue siendo mejor que no tenerla contestó
   «por este error»; la formulación completa —el error sale a la luz al chocar con otra
   fuente, y una fuente sola nunca discrepa consigo misma— la puso el tutor.
+- **Al escribir `demo_esperado.md` hizo falta revisarlo tres veces, y el patrón es el mismo
+  que en S11-B3: al sustituir un bloque, sobra lo viejo o falta parte de lo nuevo.** Primera
+  versión: tabla escrita con comas en lugar de sintaxis Markdown. Segunda: la tabla nueva
+  correcta, pero **desaparecieron las filas de Noche y Tarde** y quedó además la vieja
+  cabecera con comas encima. Tercera: recuperadas las filas, la cabecera sobrante seguía ahí.
+  Cuarta: limpio. Ninguno de los tres tropiezos fue de contenido —los nueve números fueron
+  correctos desde el principio—, todos de reemplazo incompleto. Se corrige mirando el archivo
+  completo después de editar, no solo la parte recién escrita.
 - **`datos/produccion.csv` quedó modificado sin que él lo pretendiera: lo abrió en Excel
   para hacer el `SUMAR.SI` y al guardar Excel le puso comillas a todos los campos de texto y
   le cambió las seis fechas.** El criterio de aceptación nº4 de `PROYECTO.md` —el archivo
@@ -100,10 +117,6 @@ lo que falta para cerrar el bloque.
 
 ## Pendiente
 
-- **`datos/demo_esperado.md` no existe.** S12-B2 pide el CSV **y** los resultados esperados
-  escritos; hay uno de los dos entregables. Formato acordado con él: Markdown, no CSV, para
-  poder anotar el motivo del descarte de la fila 4 y el hallazgo de la tasa de defectos. Es
-  lo único que separa este bloque de `validado`.
 - **Hallazgo abierto, y es suyo: `resumen_por_turno.csv` no calcula tasa de defectos.** Su
   tabla llevaba esa columna y el reporte no la trae —solo producidas, horas, buenas y
   productividad—. Su predicción del 25% para Mañana no era falsa: era una columna

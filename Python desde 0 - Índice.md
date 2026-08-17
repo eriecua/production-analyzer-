@@ -100,7 +100,7 @@ Este apartado reúne exclusivamente las notas del programa de Python. Está sepa
 
 ## Semana 12 — Integración y presentación
 
-- [[44 - S12-B2 - CSV de demostracion y resultados esperados]] — Verdad de referencia: escribir los resultados esperados antes de ejecutar, porque un número calculado después de ver la salida es una copia y no una comprobación. El método para elegir números de prueba limpios, y por qué Excel y el programa dan cifras distintas del mismo turno sin que ninguno de los dos esté roto. Estado: pendiente de validación; falta `datos/demo_esperado.md`.
+- [[44 - S12-B2 - CSV de demostracion y resultados esperados]] — Verdad de referencia: escribir los resultados esperados antes de ejecutar, porque un número calculado después de ver la salida es una copia y no una comprobación. El método para elegir números de prueba limpios, y por qué Excel y el programa dan cifras distintas del mismo turno sin que ninguno de los dos esté roto. Estado: validado.
 
 ## Prácticas de transferencia
 
