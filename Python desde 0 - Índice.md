@@ -101,6 +101,7 @@ Este apartado reúne exclusivamente las notas del programa de Python. Está sepa
 ## Semana 12 — Integración y presentación
 
 - [[44 - S12-B2 - CSV de demostracion y resultados esperados]] — Verdad de referencia: escribir los resultados esperados antes de ejecutar, porque un número calculado después de ver la salida es una copia y no una comprobación. El método para elegir números de prueba limpios, y por qué Excel y el programa dan cifras distintas del mismo turno sin que ninguno de los dos esté roto. Estado: validado.
+- [[45 - S12-B4 - Demostracion y retrospectiva]] — El programa demostrado ante cinco entradas distintas con sus códigos de salida, y `git status` en silencio como prueba de que el original no se toca. Su diagnóstico propio: los conceptos por separado los tiene, lo que cuesta es la integración de uno dentro de otro. Estado: validado. **La `VALIDACIÓN SEMANAL 12` sigue abierta: falta que otra persona ejecute el programa con solo el README.**
 
 ## Prácticas de transferencia
 
