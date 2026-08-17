@@ -98,6 +98,10 @@ Este apartado reúne exclusivamente las notas del programa de Python. Está sepa
 
 - [[42 - Cierre del proyecto - Explicar el flujo principal]] — El recorrido completo del analizador explicado en frío: por qué un indicador agregado no se puede calcular durante la lectura, la columna vertebral revisar → acumular → calcular → escribir, y por qué unos reportes vacíos son peores que un error. Séptimo y último criterio de aceptación de `PROYECTO.md`; el analizador queda terminado. Estado: validado.
 
+## Semana 12 — Integración y presentación
+
+- [[44 - S12-B2 - CSV de demostracion y resultados esperados]] — Verdad de referencia: escribir los resultados esperados antes de ejecutar, porque un número calculado después de ver la salida es una copia y no una comprobación. El método para elegir números de prueba limpios, y por qué Excel y el programa dan cifras distintas del mismo turno sin que ninguno de los dos esté roto. Estado: pendiente de validación; falta `datos/demo_esperado.md`.
+
 ## Prácticas de transferencia
 
 - [[20 - Practica de transferencia - Calculadora validada]] — Calculadora interactiva con validación de números, operadores y repetición S/N. Estado: validado como práctica complementaria; no cierra un bloque oficial.
